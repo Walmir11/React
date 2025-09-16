@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Classes</title>
+    <style>
+        body {
+            background-color: blue;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .item {
+            width: 80px;
+            height: 80px;
+            background-color: blueviolet;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .item:hover {
+            background-color: red;
+            cursor: progress;
+        }
+
+        .item:nth-child(3):hover {
+            background-color: yellow;
+        }
+
+        .item:first-child:hover {
+            background-color: green;
+        }
+
+        .item:last-child:hover {
+            background-color: orange;
+        }
+
+        input:focus {
+            border-color: red;
+            background: gray;
+            color: tomato;
+        }
+
+        @media (max-width: 450px) {
+            body {
+                background-color: green;
+            }
+
+            .flex {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <h2>Flexbox</h2>
+    <div class="flex">
+        <div class="item">a</div>
+        <div class="item">b</div>
+        <div class="item">c</div>
+        <div class="item">d</div>
+        <div class="item">e</div>
+        <div class="item">f</div>
+    </div>
+    <div>
+        <input />
+    </div>
+
+</body>
+
+</html>
