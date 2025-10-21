@@ -17,8 +17,8 @@ export const InputContainer = styled.div`
         height: 75px;
         background-color: #000000ff;
         border: 0;
-        dsplay: flex;
-        flex-directin: column;
+        display: flex;
+        flex-direction: column;
         align-items: flex-end;
         padding: 0 10px;
         font-size: 24px;
