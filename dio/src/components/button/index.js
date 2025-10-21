@@ -1,5 +1,7 @@
-export default function Button({title}) {
+const Button = () => {
   return (
-    <button>{title}</button>
+    <div className="App">
+    </div>
   );
 }
+export default Button;
