@@ -30,11 +30,56 @@ const App = () => {
     }
   }
 
+  const handleRemNumbers = () => {
+    if (firstNumber === '0') {
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('-');
+    }else {
+      const sum = Number(firstNumber) - Number(currentNumber);
+      setCurrentNumber(String(sum));
+      setOperation('');
+    }
+  }
+
+  const handleDivNumbers = () => {
+    if (firstNumber === '0') {
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('/');
+    }else {
+      const sum = Number(firstNumber) / Number(currentNumber);
+      setCurrentNumber(String(sum));
+      setOperation('');
+    }
+  }
+
+  const handleMultNumbers = () => {
+    if (firstNumber === '0') {
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('*');
+    }else {
+      const sum = Number(firstNumber) * Number(currentNumber);
+      setCurrentNumber(String(sum));
+      setOperation('');
+    }
+  }
+
   const handleEquals = () => {
     if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
       switch (operation) {
         case '+':
           handleSumNumbers();
+          break;
+        case '-':
+          handleRemNumbers();
+          break;
+        case '*':
+          handleMultNumbers();
+          break;
+        case '/':
+          handleDivNumbers();
           break;
         default:
           break;
@@ -46,16 +91,16 @@ const App = () => {
       <Content>
         <Input value={currentNumber} />
         <Row>
-          <Button label="x" onClick={()=> handleAddNumber('x')}/>
-          <Button label="/" onClick={()=> handleAddNumber('/')}/>
-          <Button label="C" onClick={handleOnClerar}/>
-          <Button label="X" onClick={()=> handleAddNumber('X')}/>
+          <Button label="x" onClick={handleMultNumbers}/>
+          <Button label="/" onClick={handleDivNumbers}/>
+          <Button label="c" onClick={handleOnClerar}/>
+          <Button label="." onClick={()=> handleAddNumber('.')}/>
         </Row>
         <Row>
           <Button label="7" onClick={()=> handleAddNumber('7')}/>
           <Button label="8" onClick={()=> handleAddNumber('8')}/>
           <Button label="9" onClick={()=> handleAddNumber('9')}/>
-          <Button label="-" onClick={()=> handleAddNumber('-')}/>
+          <Button label="-" onClick={handleRemNumbers}/>
         </Row>
         <Row>
           <Button label="4" onClick={()=> handleAddNumber('4')}/>
