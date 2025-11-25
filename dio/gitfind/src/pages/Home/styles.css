@@ -1,0 +1,66 @@
+.conteudo {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+ }
+
+.background{
+    height: 40vh;
+    position: absolute;
+    left: 0;
+}
+
+.info {
+    width: 60%;
+    margin-right: 90px;
+    margin-top: 40px;
+    color: white;
+}
+
+input {
+    border: 1px solid #999999;
+    border-radius: 25px;
+    min-width: 250px;
+    width: 85%;
+    margin-right: 12px;
+    background: transparent;
+    font-size: 18px;
+    padding: 10px;
+}
+
+button {
+    border: 1px solid #999999;
+    border-radius: 25px;
+    margin-right: 12px;
+    background: #2D333B;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.perfil {
+    display: flex;
+    margin: 40px 0;
+}
+
+.profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    border: 1px solid #999999;
+    margin-right: 32px;
+}
+
+.perfil h3 {
+    display: block;
+    color: white;
+    margin: 0;
+    font-size: 12px;
+}
+
+.perfil p {
+    color: #999999;
+    font-size: 12px;
+    margin: 20px 0 0 0;
+}
