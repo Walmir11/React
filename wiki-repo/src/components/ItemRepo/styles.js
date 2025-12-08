@@ -14,9 +14,15 @@ export const ItemContainer = styled.div`
         margin-top: 20px;
     }
 
-    a.remover{
+    button.remover{
         color: #FF0000;
         margin-top: 20px;
+        background: transparent;
+        border: none;
+        font-size: inherit;
+        cursor: pointer;
+        padding: 0;
+        font-family: inherit;
     }
 
     hr{
