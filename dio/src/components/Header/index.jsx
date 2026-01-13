@@ -8,25 +8,36 @@ import {
     Menu,
     MenuRight,
     Input,
-    Logo
+    Logo,
+    UserPicture
 } from "./styles";
 
-function Header() {
+function Header({autenticado}) {
   return (
     <Wrapper>
         <Container>
             <Row>
                 <Logo src={logo} alt="Logo da Dio"/>
-                <BuscarInputContainer>
-                    <Input placeholder="Buscar..."/>
-                </BuscarInputContainer>
-                <Menu href="#" >Live Code</Menu>
-                <Menu href="#" >Global</Menu>
+                {autenticado ? (
+                    <>
+                    <BuscarInputContainer>
+                        <Input placeholder="Buscar..."/>
+                    </BuscarInputContainer>
+                    <Menu href="#" >Live Code</Menu>
+                    <Menu href="#" >Global</Menu>
+                    </>
+                ) : null}
             </Row>
             <Row>
-                <MenuRight href="#" >Home</MenuRight>
-                <Button title="Entrar"/>
-                <Button title="Cadastrar"/>
+                {autenticado ? (
+                    <UserPicture src="https://avatars.githubusercontent.com/u/128555631?v=4"/>
+                ) : (
+                    <>
+                        <MenuRight href="#" >Home</MenuRight>
+                        <Button title="Entrar"/>
+                        <Button title="Cadastrar"/>
+                    </>
+                )}
             </Row>
         </Container>
     </Wrapper>

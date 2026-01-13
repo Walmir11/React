@@ -41,5 +41,3 @@ export const Progress = styled.div`
         background-color: #23DD7A;
     }
 `
-
-    `

@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Container, TextContent, Title, TitleHighlight } from './styles';
@@ -5,6 +7,13 @@ import banner from '../../assets/Banner.jpg';
 
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
+  const handleClickSign = () => {
+    navigate('/login');
+  }
+
   return (<>
         <Header />
         <Container style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -21,7 +30,7 @@ const Home = () => {
               Domine as tecnologias utilizadas pelas empresas mais inovadoras do mundo e 
               encare os desafios para se tornar um profissional completo.
             </TextContent>
-            <Button title="Começar agora" variant='secondary' onClick={() => null} />
+            <Button title="Começar agora" variant='secondary' onClick={handleClickSign} />
           </div>
           <div>
             <img src={banner} alt="Imagem Banner" style={{ width: '1000px' }}/>
