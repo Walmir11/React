@@ -5,29 +5,30 @@ import { Container, Column, Title, Wrapper, TitleLogin, SubtitleLogin } from './
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { useNavigate } from "react-router-dom";
 
 const schema = yup
   .object({
     email: yup.string().email('E-mail inválido').required('E-mail obrigatório'),
     password: yup.string().min(3, 'Minimo 3 caracteres').required('Senha obrigatória'),
     confirmPassword: yup.string()
-      .oneOf([yup.ref('password'), null], 'As senhas precisam ser iguais')
+      .oneOf([yup.ref('password')], 'As senhas precisam ser iguais')
       .required('Confirmar senha obrigatória'),
   })
   .required()
 
 const Register = () => {
+    const navigate = useNavigate();
     const {
     control,
-    handleSubmit,
-    formState: { errors},
+    handleSubmit
   } = useForm({
     resolver: yupResolver(schema),
     mode: 'onChange',
   })
 
-    const onSubmit = async formData => {
-        navigator('/login');
+    const onSubmit = async (formData: any) => {
+        navigate('/login');
 
     };
 

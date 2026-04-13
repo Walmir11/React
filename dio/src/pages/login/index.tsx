@@ -1,4 +1,4 @@
-import { MdEmail, MdLock } from 'react-icons/md';
+import { MdEmail as MdEmailIcon, MdLock as MdLockIcon } from 'react-icons/md';
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -8,6 +8,10 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Column, Container, CriarText, EsqueciText, Row, SubtitleLogin, Title, TitleLogin, Wrapper} from './styles';
 import { api } from '../../services/api';
+import { IFormData } from './types';
+
+const MdEmail = MdEmailIcon as any;
+const MdLock = MdLockIcon as any;
 
 const schema = yup
   .object({
@@ -24,12 +28,12 @@ const Login = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
     mode: 'onChange',
   })
 
-  const onSubmit = async formData => {
+  const onSubmit = async (formData: IFormData) => {
     try {
       const { data } = await api.get(`users?email=${formData.email}&senha=${formData.password}` );
       if(data.length === 1) {
