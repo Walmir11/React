@@ -3,6 +3,7 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Container, Column, Title, Wrapper, TitleLogin, SubtitleLogin } from './styles';
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
@@ -17,6 +18,8 @@ const schema = yup
   .required()
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const {
     control,
     handleSubmit,
@@ -27,7 +30,7 @@ const Register = () => {
   })
 
     const onSubmit = async formData => {
-        navigator('/login');
+        navigate('/login');
 
     };
 
@@ -45,9 +48,9 @@ const Register = () => {
                 <TitleLogin>Faça seu Cadastro</TitleLogin>
                 <SubtitleLogin>Informe seus dados para entrar na plataforma</SubtitleLogin>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input type="email" placeholder="E-mail" name="email" control={control} />
-                    <Input type="password" placeholder="Senha" name="password" control={control} />
-                    <Input type="password" placeholder="Confirmar senha" name="confirmPassword" control={control} />
+                    <Input type="email" placeholder="E-mail" name="email" control={control} errorMessage={errors.email?.message} />
+                    <Input type="password" placeholder="Senha" name="password" control={control} errorMessage={errors.password?.message} />
+                    <Input type="password" placeholder="Confirmar senha" name="confirmPassword" control={control} errorMessage={errors.confirmPassword?.message} />
                     <Button title="Criar minha conta" variant="secondary" type="submit"/>
                 </form>
             </Wrapper>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const Teste = () => {
 
@@ -21,13 +21,6 @@ const Teste = () => {
     useEffect(() => {
       alert('O nome foi alterado para: ' + name);
     }, [name]);
-
-    // useMemo memoriza o valor retornado pela função, evitando recalcular em cada renderização
-    const calculo = useMemo(() => {
-        console.log('Realizando um cálculo pesado...');
-        return 10 * 48735;
-    }, []);
-
 
     return(
         <div>
