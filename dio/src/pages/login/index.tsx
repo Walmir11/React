@@ -7,8 +7,9 @@ import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Column, Container, CriarText, EsqueciText, Row, SubtitleLogin, Title, TitleLogin, Wrapper} from './styles';
-import { api } from '../../services/api';
 import { IFormData } from './types';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/auth';
 
 const MdEmail = MdEmailIcon as any;
 const MdLock = MdLockIcon as any;
@@ -22,7 +23,7 @@ const schema = yup
 
 
 const Login = () => {
-  const navigate = useNavigate();
+  const { handleLogin } = useContext(AuthContext);
 
   const {
     control,
@@ -34,16 +35,7 @@ const Login = () => {
   })
 
   const onSubmit = async (formData: IFormData) => {
-    try {
-      const { data } = await api.get(`users?email=${formData.email}&senha=${formData.password}` );
-      if(data.length === 1) {
-        navigate('/feed');
-      } else {
-        alert('Erro ao fazer login, tente novamente.')
-      }
-    } catch {
-      alert('Erro ao fazer login, tente novamente.')
-    }
+    handleLogin(formData);
 
   }
 

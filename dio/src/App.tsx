@@ -4,11 +4,12 @@ import { Login } from './pages/login';
 import { Feed } from './pages/feed';
 import { Register } from './pages/register';
 import { Teste } from './pages';
-
+import { AuthContextProvider } from './context/auth';
 
 function App() {
   return (
-    <Router>
+  <Router>
+    <AuthContextProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -16,7 +17,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/teste" element={<Teste />} />
       </Routes>
-    </Router>
+    </AuthContextProvider>
+  </Router>
+  
+    
   );
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/logo-dio.png";
 import { Button } from "../Button";
 import {
@@ -12,15 +12,18 @@ import {
     Logo,
     UserPicture
 } from "./styles";
-import { IHeader } from "./types";
+import { AuthContext } from "../../context/auth";
 
-const Header = ({autenticado}: IHeader) => {
+const Header = () => {
+
+  const { user } = useContext(AuthContext);
+
   return (
     <Wrapper>
       <Container>
         <Row>
           <Logo src={logo} alt="Logo da Dio" />
-          {autenticado ? (
+          {user.id ? (
             <>
               <BuscarInputContainer>
                 <Input placeholder="Buscar..." />
@@ -31,7 +34,7 @@ const Header = ({autenticado}: IHeader) => {
           ) : null}
         </Row>
         <Row>
-          {autenticado ? (
+          {user.id ? (
             <UserPicture src="https://avatars.githubusercontent.com/u/128555631?v=4" />
           ) : (
             <>
