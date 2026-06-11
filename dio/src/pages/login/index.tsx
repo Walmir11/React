@@ -1,6 +1,5 @@
 import { MdEmail as MdEmailIcon, MdLock as MdLockIcon } from 'react-icons/md';
 import { useForm } from "react-hook-form"
-import { useNavigate } from 'react-router-dom';
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { Header } from '../../components/Header';
@@ -8,8 +7,7 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Column, Container, CriarText, EsqueciText, Row, SubtitleLogin, Title, TitleLogin, Wrapper} from './styles';
 import { IFormData } from './types';
-import { useContext } from 'react';
-import { AuthContext } from '../../context/auth';
+import { useAuth } from '../../hooks/useAuth';
 
 const MdEmail = MdEmailIcon as any;
 const MdLock = MdLockIcon as any;
@@ -23,7 +21,7 @@ const schema = yup
 
 
 const Login = () => {
-  const { handleLogin } = useContext(AuthContext);
+  const { handleLogin } = useAuth();
 
   const {
     control,

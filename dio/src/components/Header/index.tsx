@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import logo from "../../assets/logo-dio.png";
 import { Button } from "../Button";
 import {
@@ -12,11 +11,11 @@ import {
     Logo,
     UserPicture
 } from "./styles";
-import { AuthContext } from "../../context/auth";
+import { useAuth } from "../../hooks/useAuth";
 
 const Header = () => {
 
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   return (
     <Wrapper>
